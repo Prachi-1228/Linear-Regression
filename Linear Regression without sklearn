@@ -1,0 +1,22 @@
+# Define the dataset
+X = [1, 2, 3, 4, 5]  # Input features
+y = [2, 4, 6, 8, 10]  # Corresponding labels
+
+# Calculate the mean of X and y
+mean_x = sum(X) / len(X)
+mean_y = sum(y) / len(y)
+
+# Calculate the slope and intercept of the regression line
+numerator = sum([(X[i] - mean_x) * (y[i] - mean_y) for i in range(len(X))])
+denominator = sum([(x - mean_x) ** 2 for x in X])
+slope = numerator / denominator
+intercept = mean_y - slope * mean_x
+
+# Use the regression line to make predictions
+new_data = [6, 7, 8]  # New input data
+predictions = [slope * x + intercept for x in new_data]
+
+# Print the slope, intercept, and predictions
+print("Slope:", slope)
+print("Intercept:", intercept)
+print("Predictions for new data:", predictions)
